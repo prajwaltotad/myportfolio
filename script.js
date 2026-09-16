@@ -37,8 +37,33 @@ const observer = new IntersectionObserver((entries) => {
 }, { threshold: 0.12 });
 document.querySelectorAll('.reveal').forEach((element) => observer.observe(element));
 
-document.querySelector('.contact-form').addEventListener('submit', (event) => {
+const contactForm = document.querySelector('.contact-form');
+
+contactForm.addEventListener('submit', async (event) => {
   event.preventDefault();
-  event.currentTarget.querySelector('.form-message').textContent = "Thanks! This demo form doesn't have a backend yet.";
-  event.currentTarget.reset();
+  const submitButton = contactForm.querySelector('button[type="submit"]');
+  const formMessage = contactForm.querySelector('.form-message');
+  const originalButtonText = submitButton.innerHTML;
+
+  submitButton.disabled = true;
+  submitButton.textContent = 'Sending...';
+  formMessage.textContent = '';
+
+  try {
+    const response = await fetch(contactForm.action, {
+      method: 'POST',
+      body: new FormData(contactForm),
+      headers: { Accept: 'application/json' },
+    });
+
+    if (!response.ok) throw new Error('Unable to send message');
+
+    formMessage.textContent = 'Thanks! Your message has been sent.';
+    contactForm.reset();
+  } catch (error) {
+    formMessage.textContent = 'Something went wrong. Please email me directly.';
+  } finally {
+    submitButton.disabled = false;
+    submitButton.innerHTML = originalButtonText;
+  }
 });
