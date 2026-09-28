@@ -229,14 +229,20 @@ function App() {
             </p>
 
             <h1 className="hero-name" aria-label="Prajwal Totad">
-              {'PRAJWAL TOTAD'.split('').map((character, index) => (
-                <span
-                  aria-hidden="true"
-                  className={character === ' ' ? 'glitch-char glitch-space' : 'glitch-char'}
-                  key={`${character}-${index}`}
-                  style={{ animationDelay: `${index * 32}ms` }}
-                >
-                  {character === ' ' ? '\u00a0' : character}
+              {['PRAJWAL', 'TOTAD'].map((word, wordIndex) => (
+                <span className="hero-name-word" aria-hidden="true" key={word}>
+                  {word.split('').map((character, characterIndex) => {
+                    const index = wordIndex * 7 + characterIndex
+                    return (
+                      <span
+                        className="glitch-char"
+                        key={`${character}-${index}`}
+                        style={{ animationDelay: `${index * 32}ms` }}
+                      >
+                        {character}
+                      </span>
+                    )
+                  })}
                 </span>
               ))}
             </h1>

@@ -182,18 +182,23 @@
 
 .hero h1 {
   margin: 0 0 18px;
-  font-size: clamp(3rem, 6vw, 5.7rem);
+  font-size: clamp(2.75rem, 9vw, 5.7rem);
   line-height: 0.95;
   letter-spacing: -0.08em;
   font-weight: 700;
 }
 
-.hero-name .glitch-char {
+.hero-name-word {
   display: inline-block;
+  white-space: nowrap;
 }
 
-.hero-name .glitch-space {
-  width: 0.3em;
+.hero-name-word + .hero-name-word {
+  margin-left: 0.25em;
+}
+
+.hero-name .glitch-char {
+  display: inline-block;
 }
 
 .hero-name:hover .glitch-char {
