@@ -52,7 +52,7 @@ const projects: Project[] = [
     description:
       'A command-line text editor built in C to practice data structures, file handling and problem-solving fundamentals.',
     technologies: ['C', 'CLI', 'Data Structures'],
-    github: null,
+    github: 'https://github.com/prajwaltotad/line-editor',
     demo: null,
     details: {
       architecture: 'Command input → editor logic → file handling → terminal output',
@@ -190,11 +190,6 @@ function App() {
             <span className="brand-text">PRAJWAL.TOTAD</span>
           </a>
 
-          <div className="brand-status" aria-label="Currently available">
-            <span className="status-dot" aria-hidden="true" />
-            ONLINE
-          </div>
-
           <button
             type="button"
             className="mobile-menu-toggle"
@@ -233,21 +228,28 @@ function App() {
               </span>
             </p>
 
-            <h1>PRAJWAL TOTAD</h1>
+            <h1 className="hero-name" aria-label="Prajwal Totad">
+              {'PRAJWAL TOTAD'.split('').map((character, index) => (
+                <span
+                  aria-hidden="true"
+                  className={character === ' ' ? 'glitch-char glitch-space' : 'glitch-char'}
+                  key={`${character}-${index}`}
+                  style={{ animationDelay: `${index * 32}ms` }}
+                >
+                  {character === ' ' ? '\u00a0' : character}
+                </span>
+              ))}
+            </h1>
             <p className="hero-subtitle">B.Tech Computer Science Student</p>
             <p className="hero-text">
-              Building software, learning systems, and solving problems one project at a time.
+              I build practical projects—from Arduino-based systems to command-line tools—while strengthening my software engineering fundamentals.
             </p>
 
             <div className="hero-status">
               <span className="status-dot tiny" aria-hidden="true" />
-              Currently learning &amp; building
+              Exploring software development, embedded systems &amp; AI/ML
             </div>
 
-            <a className="scroll-indicator" href="#about">
-              SCROLL TO EXPLORE
-              <span aria-hidden="true">↓</span>
-            </a>
           </div>
 
           <div className="terminal-card" aria-label="Prajwal profile overview">
@@ -260,8 +262,8 @@ function App() {
 
             <div className="dashboard-grid">
               <div className="dashboard-row">
-                <span className="dashboard-label">STATUS</span>
-                <span className="dashboard-value online">● ONLINE</span>
+                <span className="dashboard-label">FOCUS</span>
+                <span className="dashboard-value">Software &amp; systems</span>
               </div>
               <div className="dashboard-row">
                 <span className="dashboard-label">EDUCATION</span>
@@ -269,10 +271,10 @@ function App() {
               </div>
               <div className="dashboard-row">
                 <span className="dashboard-label">UNIVERSITY</span>
-                <span className="dashboard-value">REVA University</span>
+                <a className="university-link dashboard-value" href="https://www.reva.edu.in/" target="_blank" rel="noreferrer">REVA University</a>
               </div>
               <div className="dashboard-row full">
-                <span className="dashboard-label">CURRENTLY EXPLORING</span>
+                <span className="dashboard-label">AREAS OF INTEREST</span>
                 <div className="dashboard-list">
                   <span>DSA</span>
                   <span>AI / ML</span>
@@ -288,34 +290,27 @@ function App() {
           <div className="about-layout">
             <div className="about-copy">
               <h2>
-                A work in progress,
-                <span>by design.</span>
+                I build to understand.
+                <span>Then make it useful.</span>
               </h2>
               <p>
-                I am a B.Tech student at <strong>REVA University</strong>, focused on
-                growing into a thoughtful software developer.
+                I am a Computer Science undergraduate at <strong><a className="university-link" href="https://www.reva.edu.in/" target="_blank" rel="noreferrer">REVA University</a></strong>, building a strong foundation in programming and software development.
               </p>
               <p>
-                Right now, I am developing my programming, problem-solving and software
-                development skills through coursework and hands-on projects. I enjoy
-                understanding how things work and turning that understanding into
-                something useful.
+                My projects include an Arduino smart parking system and a command-line line editor in C. They reflect what I enjoy most: understanding how a system works, then applying that knowledge to solve a practical problem.
               </p>
             </div>
 
             <div className="terminal-aside">
               <p className="terminal-prompt">
                 <span className="prompt">$</span>
-                <span className="command">cat about.txt</span>
+                <span className="command">focus_areas</span>
               </p>
               <ul>
-                <li>B.Tech CSE student</li>
-                <li>@ REVA University</li>
-                <li>Currently exploring:</li>
-                <li>→ Data Structures</li>
-                <li>→ Software Development</li>
-                <li>→ AI / ML</li>
-                <li>→ Data Analysis</li>
+                <li>Programming: C, Java, Python</li>
+                <li>Building: web and embedded projects</li>
+                <li>Practicing: data structures &amp; algorithms</li>
+                <li>Exploring: AI / ML and data analysis</li>
               </ul>
             </div>
           </div>
@@ -474,7 +469,7 @@ function App() {
               <div className="timeline-content">
                 <h3>B.Tech</h3>
                 <p>Computer Science Engineering</p>
-                <p className="timeline-school">REVA University</p>
+                <p className="timeline-school"><a className="university-link" href="https://www.reva.edu.in/" target="_blank" rel="noreferrer">REVA University</a></p>
               </div>
             </div>
             <div className="timeline-item">
@@ -516,7 +511,8 @@ function App() {
               </p>
               <div className="mini-links">
                 <a className="contact-email" href="mailto:prajwaltotad2006@gmail.com">
-                  <span className="contact-email-text">prajwaltotad2006@gmail.com ↗</span>
+                  <span className="contact-email-text">prajwaltotad2006@gmail.com</span>
+                  <span className="contact-email-arrow" aria-hidden="true">↗</span>
                 </a>
               </div>
             </div>
@@ -607,11 +603,6 @@ function App() {
               <p>{selectedProject.details.learned}</p>
             </div>
 
-            {selectedProject.github ? (
-              <a className="primary-btn modal-link" href={selectedProject.github} target="_blank" rel="noreferrer">
-                SOURCE CODE <span aria-hidden="true">↗</span>
-              </a>
-            ) : null}
           </div>
         </div>
       ) : null}
