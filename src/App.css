@@ -135,15 +135,17 @@
 .hero {
   min-height: calc(100vh - 76px);
   display: grid;
-  grid-template-columns: 1.1fr 0.9fr;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
   gap: 56px;
-  align-items: center;
+  align-items: start;
   padding-top: 48px;
   padding-bottom: 68px;
 }
 
 .hero-copy {
-  max-width: 600px;
+  width: 100%;
+  max-width: 640px;
+  min-width: 0;
 }
 
 .terminal-prompt {
@@ -182,7 +184,7 @@
 
 .hero h1 {
   margin: 0 0 18px;
-  font-size: clamp(2.75rem, 9vw, 5.7rem);
+  font-size: clamp(2.5rem, 6vw, 5.2rem);
   line-height: 0.9;
   letter-spacing: -0.08em;
   font-weight: 700;
@@ -192,8 +194,11 @@
   display: flex;
   align-items: baseline;
   flex-wrap: nowrap;
-  gap: 0.14em;
+  gap: 0.12em;
   min-width: 0;
+  max-width: 100%;
+  white-space: nowrap;
+  width: max-content;
 }
 
 .hero-name-word {
@@ -201,6 +206,8 @@
   align-items: baseline;
   white-space: nowrap;
   line-height: 0.9;
+  max-width: 100%;
+  flex-shrink: 0;
 }
 
 .hero-name-word:first-child {
