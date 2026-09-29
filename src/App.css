@@ -183,22 +183,41 @@
 .hero h1 {
   margin: 0 0 18px;
   font-size: clamp(2.75rem, 9vw, 5.7rem);
-  line-height: 0.95;
+  line-height: 0.9;
   letter-spacing: -0.08em;
   font-weight: 700;
 }
 
+.hero-name {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: nowrap;
+  gap: 0.14em;
+  min-width: 0;
+}
+
 .hero-name-word {
-  display: inline-block;
+  display: inline-flex;
+  align-items: baseline;
   white-space: nowrap;
+  line-height: 0.9;
+}
+
+.hero-name-word:first-child {
+  font-weight: 500;
+}
+
+.hero-name-word:last-child {
+  font-weight: 700;
 }
 
 .hero-name-word + .hero-name-word {
-  margin-left: 0.25em;
+  margin-left: 0;
 }
 
 .hero-name .glitch-char {
   display: inline-block;
+  transform: translateZ(0);
 }
 
 .hero-name:hover .glitch-char {
@@ -261,6 +280,17 @@
   border-radius: 18px;
   overflow: hidden;
   box-shadow: var(--shadow);
+  transition: transform 0.25s cubic-bezier(0.2, 0.8, 0.2, 1),
+    box-shadow 0.25s cubic-bezier(0.2, 0.8, 0.2, 1),
+    border-color 0.25s ease, background-color 0.25s ease;
+}
+
+.terminal-card:hover,
+.terminal-card:focus-within {
+  transform: translateY(-3px) scale(1.012);
+  border-color: rgba(74, 222, 128, 0.45);
+  box-shadow: 0 18px 32px rgba(0, 0, 0, 0.22);
+  background: rgba(17, 17, 17, 0.9);
 }
 
 .terminal-topbar {
@@ -305,6 +335,16 @@
   border: 1px solid var(--border);
   border-radius: 12px;
   background: rgba(255, 255, 255, 0.02);
+  transition: transform 0.25s cubic-bezier(0.2, 0.8, 0.2, 1),
+    border-color 0.25s ease, box-shadow 0.25s ease, background-color 0.25s ease;
+}
+
+.dashboard-row:hover,
+.dashboard-row:focus-within {
+  transform: translateY(-3px) scale(1.01);
+  border-color: rgba(74, 222, 128, 0.35);
+  box-shadow: 0 12px 22px rgba(0, 0, 0, 0.14);
+  background: rgba(255, 255, 255, 0.03);
 }
 
 .dashboard-row.full {
@@ -357,6 +397,16 @@
   color: var(--text-secondary);
   font-size: 0.7rem;
   font-family: var(--font-mono);
+  transition: transform 0.25s cubic-bezier(0.2, 0.8, 0.2, 1),
+    border-color 0.25s ease, box-shadow 0.25s ease, background-color 0.25s ease;
+}
+
+.dashboard-list span:hover,
+.dashboard-list span:focus-visible {
+  transform: translateY(-2px) scale(1.03);
+  border-color: rgba(74, 222, 128, 0.45);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.14);
+  background: rgba(255, 255, 255, 0.03);
 }
 
 .section-label {
@@ -413,6 +463,16 @@
   background: rgba(17, 17, 17, 0.68);
   border-radius: 18px;
   padding: 22px 20px 18px;
+  transition: transform 0.25s cubic-bezier(0.2, 0.8, 0.2, 1),
+    border-color 0.25s ease, box-shadow 0.25s ease, background-color 0.25s ease;
+}
+
+.terminal-aside:hover,
+.terminal-aside:focus-within {
+  transform: translateY(-3px) scale(1.012);
+  border-color: rgba(74, 222, 128, 0.38);
+  box-shadow: 0 16px 28px rgba(0, 0, 0, 0.16);
+  background: rgba(17, 17, 17, 0.78);
 }
 
 .terminal-aside ul {
@@ -440,13 +500,16 @@
   border-radius: 16px;
   background: rgba(17, 17, 17, 0.6);
   padding: 18px 16px;
-  transition: transform 0.2s ease, border-color 0.2s ease;
+  transition: transform 0.25s cubic-bezier(0.2, 0.8, 0.2, 1),
+    border-color 0.25s ease, box-shadow 0.25s ease, background-color 0.25s ease;
 }
 
 .skill-group:hover,
 .skill-group:focus-within {
-  transform: translateY(-3px);
+  transform: translateY(-3px) scale(1.02);
   border-color: rgba(74, 222, 128, 0.45);
+  box-shadow: 0 16px 28px rgba(0, 0, 0, 0.15);
+  background: rgba(17, 17, 17, 0.72);
 }
 
 .skill-group-title {
@@ -477,16 +540,16 @@
   font-size: 0.73rem;
   font-family: var(--font-mono);
   letter-spacing: 0.04em;
-  transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+  transition: border-color 0.25s ease, box-shadow 0.25s ease, background-color 0.25s ease;
 }
 
 .skill-badge:hover,
 .skill-badge:focus-visible,
 .tech-badge:hover,
 .tech-badge:focus-visible {
-  transform: translateY(-2px);
   border-color: rgba(74, 222, 128, 0.45);
   box-shadow: 0 0 0 1px rgba(74, 222, 128, 0.12);
+  background: rgba(255, 255, 255, 0.03);
 }
 
 .terminal-panel {
@@ -495,6 +558,16 @@
   border-radius: 18px;
   background: rgba(17, 17, 17, 0.72);
   padding: 20px 22px 18px;
+  transition: transform 0.25s cubic-bezier(0.2, 0.8, 0.2, 1),
+    border-color 0.25s ease, box-shadow 0.25s ease, background-color 0.25s ease;
+}
+
+.terminal-panel:hover,
+.terminal-panel:focus-within {
+  transform: translateY(-3px) scale(1.012);
+  border-color: rgba(74, 222, 128, 0.4);
+  box-shadow: 0 16px 28px rgba(0, 0, 0, 0.16);
+  background: rgba(17, 17, 17, 0.8);
 }
 
 .tree-block {
@@ -503,10 +576,26 @@
   font-family: var(--font-mono);
   font-size: 0.88rem;
   line-height: 1.8;
+  display: grid;
+  gap: 8px;
+}
+
+.tree-section {
+  display: grid;
+  gap: 4px;
+}
+
+.tree-heading {
+  color: var(--terminal-green);
+  margin: 0;
+  font-weight: 600;
 }
 
 .tree-block p {
   margin: 0;
+  display: block;
+  width: fit-content;
+  max-width: 100%;
 }
 
 .projects-grid {
@@ -520,14 +609,16 @@
   border-radius: 18px;
   background: rgba(17, 17, 17, 0.72);
   padding: 22px 20px 18px;
-  transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+  transition: transform 0.25s cubic-bezier(0.2, 0.8, 0.2, 1),
+    border-color 0.25s ease, box-shadow 0.25s ease, background-color 0.25s ease;
 }
 
 .project-card:hover,
 .project-card:focus-within {
-  transform: translateY(-6px);
-  border-color: rgba(74, 222, 128, 0.4);
-  box-shadow: 0 20px 36px rgba(0, 0, 0, 0.18);
+  transform: translateY(-4px) scale(1.02);
+  border-color: rgba(74, 222, 128, 0.45);
+  box-shadow: 0 18px 32px rgba(0, 0, 0, 0.2);
+  background: rgba(17, 17, 17, 0.82);
 }
 
 .project-topline {
@@ -552,6 +643,16 @@
   font-size: 0.62rem;
   letter-spacing: 0.08em;
   font-family: var(--font-mono);
+  transition: transform 0.25s cubic-bezier(0.2, 0.8, 0.2, 1),
+    border-color 0.25s ease, box-shadow 0.25s ease, background-color 0.25s ease;
+}
+
+.project-pill:hover,
+.project-pill:focus-visible {
+  transform: translateY(-2px) scale(1.04);
+  border-color: rgba(74, 222, 128, 0.45);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.12);
+  background: rgba(255, 255, 255, 0.02);
 }
 
 .project-card h3 {
@@ -595,6 +696,8 @@
   border: none;
   padding: 0;
   cursor: pointer;
+  transition: transform 0.25s cubic-bezier(0.2, 0.8, 0.2, 1),
+    box-shadow 0.25s ease, border-color 0.25s ease;
 }
 
 .project-actions a:hover,
@@ -602,6 +705,12 @@
 .project-details-trigger:hover,
 .project-details-trigger:focus-visible {
   border-color: rgba(74, 222, 128, 0.45);
+}
+
+.project-actions a:hover,
+.project-actions a:focus-visible {
+  transform: translateY(-2px) scale(1.04);
+  box-shadow: 0 10px 18px rgba(0, 0, 0, 0.12);
 }
 
 .activity-grid {
@@ -615,6 +724,16 @@
   border-radius: 18px;
   padding: 22px 20px;
   background: rgba(17, 17, 17, 0.72);
+  transition: transform 0.25s cubic-bezier(0.2, 0.8, 0.2, 1),
+    border-color 0.25s ease, box-shadow 0.25s ease, background-color 0.25s ease;
+}
+
+.activity-card:hover,
+.activity-card:focus-within {
+  transform: translateY(-3px) scale(1.012);
+  border-color: rgba(74, 222, 128, 0.4);
+  box-shadow: 0 16px 28px rgba(0, 0, 0, 0.16);
+  background: rgba(17, 17, 17, 0.82);
 }
 
 .mini-label {
@@ -661,6 +780,15 @@
   background: rgba(255, 255, 255, 0.02);
   font-family: var(--font-mono);
   font-size: 0.72rem;
+  transition: border-color 0.25s ease, box-shadow 0.25s ease, background-color 0.25s ease;
+}
+
+.stat-line:hover,
+.stat-line:focus-within,
+.stat-line:active {
+  border-color: rgba(74, 222, 128, 0.45);
+  box-shadow: inset 0 0 0 1px rgba(74, 222, 128, 0.12);
+  background: rgba(255, 255, 255, 0.03);
 }
 
 .stat-line span {
@@ -683,13 +811,16 @@
   border-radius: 16px;
   background: rgba(17, 17, 17, 0.6);
   padding: 18px 18px 16px;
-  transition: transform 0.2s ease, border-color 0.2s ease;
+  transition: transform 0.25s cubic-bezier(0.2, 0.8, 0.2, 1),
+    border-color 0.25s ease, box-shadow 0.25s ease, background-color 0.25s ease;
 }
 
 .learning-card:hover,
 .learning-card:focus-within {
-  transform: translateY(-3px);
+  transform: translateY(-3px) scale(1.02);
   border-color: rgba(74, 222, 128, 0.45);
+  box-shadow: 0 16px 28px rgba(0, 0, 0, 0.15);
+  background: rgba(17, 17, 17, 0.72);
 }
 
 .learning-tag {
@@ -718,6 +849,16 @@
   border-radius: 18px;
   background: rgba(17, 17, 17, 0.72);
   padding: 28px 24px;
+  transition: transform 0.25s cubic-bezier(0.2, 0.8, 0.2, 1),
+    border-color 0.25s ease, box-shadow 0.25s ease, background-color 0.25s ease;
+}
+
+.timeline:hover,
+.timeline:focus-within {
+  transform: translateY(-3px) scale(1.01);
+  border-color: rgba(74, 222, 128, 0.4);
+  box-shadow: 0 16px 28px rgba(0, 0, 0, 0.16);
+  background: rgba(17, 17, 17, 0.8);
 }
 
 .timeline-item {
@@ -774,7 +915,8 @@
   border: 1px solid var(--border);
   border-radius: 16px;
   background: rgba(17, 17, 17, 0.72);
-  transition: transform 0.22s ease, border-color 0.22s ease, background 0.22s ease, box-shadow 0.22s ease;
+  transition: transform 0.25s cubic-bezier(0.2, 0.8, 0.2, 1),
+    border-color 0.25s ease, background-color 0.25s ease, box-shadow 0.25s ease;
 }
 
 #profiles.reveal.is-visible .profile-item {
@@ -787,10 +929,10 @@
 
 .profile-item:hover,
 .profile-item:focus-visible {
-  transform: translateY(-3px);
+  transform: translateY(-3px) scale(1.012);
   border-color: rgba(74, 222, 128, 0.45);
   background: rgba(20, 27, 22, 0.9);
-  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.18);
+  box-shadow: 0 14px 26px rgba(0, 0, 0, 0.18);
 }
 
 .profile-item:focus-visible {
@@ -973,6 +1115,16 @@
   border: 1px solid var(--border);
   border-radius: 18px;
   background: rgba(17, 17, 17, 0.72);
+  transition: transform 0.25s cubic-bezier(0.2, 0.8, 0.2, 1),
+    border-color 0.25s ease, box-shadow 0.25s ease, background-color 0.25s ease;
+}
+
+.contact-form:hover,
+.contact-form:focus-within {
+  transform: translateY(-3px) scale(1.01);
+  border-color: rgba(74, 222, 128, 0.4);
+  box-shadow: 0 16px 28px rgba(0, 0, 0, 0.16);
+  background: rgba(17, 17, 17, 0.82);
 }
 
 .contact-form label {
@@ -1155,6 +1307,8 @@
   justify-content: space-between;
   gap: 12px;
   margin-bottom: 16px;
+  padding-right: 44px;
+  min-height: 32px;
 }
 
 .project-modal h3 {

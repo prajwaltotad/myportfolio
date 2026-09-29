@@ -350,19 +350,30 @@ function App() {
             </p>
 
             <div className="tree-block">
-              <p>Programming</p>
-              <p>├── C</p>
-              <p>├── Java</p>
-              <p>└── Python</p>
-              <p>Database</p>
-              <p>└── SQL</p>
-              <p>Tools</p>
-              <p>├── Git</p>
-              <p>└── GitHub</p>
-              <p>Currently Learning</p>
-              <p>├── DSA</p>
-              <p>├── AI / ML</p>
-              <p>└── Data Analysis</p>
+              <div className="tree-section">
+                <p className="tree-heading">Programming</p>
+                <p>├── C</p>
+                <p>├── Java</p>
+                <p>└── Python</p>
+              </div>
+
+              <div className="tree-section">
+                <p className="tree-heading">Database</p>
+                <p>└── SQL</p>
+              </div>
+
+              <div className="tree-section">
+                <p className="tree-heading">Tools</p>
+                <p>├── Git</p>
+                <p>└── GitHub</p>
+              </div>
+
+              <div className="tree-section">
+                <p className="tree-heading">Currently Learning</p>
+                <p>├── DSA</p>
+                <p>├── AI / ML</p>
+                <p>└── Data Analysis</p>
+              </div>
             </div>
           </div>
         </section>
