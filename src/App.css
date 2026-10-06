@@ -935,7 +935,7 @@
 
 .profile-item {
   display: grid;
-  grid-template-columns: auto minmax(0, 1fr) auto;
+  grid-template-columns: auto auto minmax(0, 1fr) auto;
   align-items: center;
   gap: 10px;
   min-width: 0;
@@ -947,6 +947,22 @@
   background: rgba(17, 17, 17, 0.72);
   transition: transform 0.25s cubic-bezier(0.2, 0.8, 0.2, 1),
     border-color 0.25s ease, background-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.profile-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 18px;
+  height: 18px;
+  color: var(--terminal-green);
+  flex-shrink: 0;
+}
+
+.profile-icon svg {
+  width: 100%;
+  height: 100%;
+  display: block;
 }
 
 #profiles.reveal.is-visible .profile-item {
@@ -1061,6 +1077,37 @@
   margin-top: 26px;
 }
 
+.footer-email-block {
+  margin: 0 0 18px;
+}
+
+.contact-email-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  width: fit-content;
+  color: var(--terminal-green);
+  font-family: var(--font-mono);
+  font-size: 0.66rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.contact-email-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 14px;
+  height: 14px;
+  flex-shrink: 0;
+}
+
+.contact-email-icon svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
 .mini-links a,
 .footer-links a,
 .back-to-top {
@@ -1080,8 +1127,13 @@
 }
 
 .mini-links .contact-email {
-  justify-self: start;
+  display: inline-flex;
+  align-items: center;
+  justify-content: flex-start;
   width: fit-content;
+  min-height: 28px;
+  padding: 4px 0;
+  text-align: left;
   -webkit-user-select: text;
   user-select: text;
 }
@@ -1270,6 +1322,12 @@
 
 .footer-terminal {
   max-width: 420px;
+  display: grid;
+  gap: 12px;
+}
+
+.footer-email-block {
+  margin-top: 0;
 }
 
 .footer-message {
@@ -1543,7 +1601,7 @@
   }
 
   .profile-item {
-    grid-template-columns: auto minmax(0, 1fr) auto;
+    grid-template-columns: auto auto minmax(0, 1fr) auto;
     align-items: center;
     justify-items: start;
     gap: 8px;

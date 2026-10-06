@@ -521,6 +521,17 @@ function App() {
           <div className="profile-panel">
             {profileLinks.map((link) => (
               <a key={link.label} className="profile-item" href={link.href} target="_blank" rel="noreferrer">
+                <span className="profile-icon" aria-hidden="true">
+                  {link.label === 'GitHub' ? (
+                    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                      <path d="M12 2C6.477 2 2 6.598 2 12.253c0 4.52 2.865 8.349 6.839 9.704.5.093.682-.224.682-.5 0-.245-.009-.894-.014-1.753-2.782.621-3.369-1.375-3.369-1.375-.455-1.19-1.11-1.507-1.11-1.507-.909-.637.069-.624.069-.624 1.004.073 1.533 1.061 1.533 1.061.893 1.571 2.342 1.117 2.912.854.09-.663.349-1.117.634-1.374-2.221-.26-4.557-1.144-4.557-5.093 0-1.125.39-2.046 1.03-2.764-.103-.26-.447-1.307.098-2.724 0 0 .841-.278 2.755 1.057A9.53 9.53 0 0 1 12 7.149c.851.004 1.708.118 2.507.347 1.913-1.335 2.753-1.057 2.753-1.057.547 1.417.202 2.464.099 2.724.642.718 1.028 1.639 1.028 2.764 0 3.958-2.34 4.83-4.569 5.085.36.319.678.946.678 1.907 0 1.377-.012 2.486-.012 2.824 0 .278.18.599.688.497A10.256 10.256 0 0 0 22 12.253C22 6.598 17.523 2 12 2Z"/>
+                    </svg>
+                  ) : (
+                    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                      <path d="M6.94 8.5A1.56 1.56 0 1 1 6.94 5.38a1.56 1.56 0 0 1 0 3.12ZM5.5 9.75h2.88v8.75H5.5V9.75Zm4.87 0h2.76v1.2h.04c.38-.73 1.32-1.5 2.72-1.5 2.91 0 3.45 1.91 3.45 4.39v4.66h-2.88v-4.37c0-1.04-.02-2.38-1.45-2.38-1.46 0-1.68 1.14-1.68 2.31v4.44H10.37V9.75Z"/>
+                    </svg>
+                  )}
+                </span>
                 <span className="profile-label">{link.label}</span>
                 <span className="profile-value">{link.value}</span>
                 <span className="profile-arrow" aria-hidden="true">
@@ -543,12 +554,6 @@ function App() {
                 Have an idea, a project in mind, or just want to connect? I&apos;d love to
                 hear about it.
               </p>
-              <div className="mini-links">
-                <a className="contact-email" href="mailto:prajwaltotad2006@gmail.com">
-                  <span className="contact-email-text">prajwaltotad2006@gmail.com</span>
-                  <span className="contact-email-arrow" aria-hidden="true">↗</span>
-                </a>
-              </div>
             </div>
 
             <form
@@ -582,6 +587,20 @@ function App() {
       <footer className="site-footer">
         <div className="container footer-inner">
           <div className="footer-terminal">
+            <div className="mini-links footer-email-block">
+              <div className="contact-email-label" aria-label="Email label">
+                <span className="contact-email-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                    <path d="M3 7.75A2.75 2.75 0 0 1 5.75 5h12.5A2.75 2.75 0 0 1 21 7.75v8.5A2.75 2.75 0 0 1 18.25 19H5.75A2.75 2.75 0 0 1 3 16.25v-8.5Zm2.08-.25 6.92 5.02 6.92-5.02H5.08Zm13.17 1.86-6.47 4.7a1 1 0 0 1-1.16 0L5.75 9.36v6.89c0 .41.34.75.75.75h10.99a.75.75 0 0 0 .75-.75V9.36Z"/>
+                  </svg>
+                </span>
+                <span className="contact-email-tag">Email</span>
+              </div>
+              <a className="contact-email" href="mailto:prajwaltotad2006@gmail.com">
+                <span className="contact-email-text">prajwaltotad2006@gmail.com</span>
+                <span className="contact-email-arrow" aria-hidden="true">↗</span>
+              </a>
+            </div>
             <p className="terminal-prompt compact">
               <span className="prompt">prajwal@portfolio:~$</span>
               <span className="command">exit</span>
@@ -590,9 +609,6 @@ function App() {
           </div>
 
           <div className="footer-meta">
-            <div className="footer-links">
-              <a href="mailto:prajwaltotad2006@gmail.com">Email</a>
-            </div>
             <p>© 2026 Prajwal Totad</p>
             <a href="#home" className="back-to-top">
               Back to top ↑
