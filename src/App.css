@@ -408,7 +408,7 @@
   border: 1px solid var(--border);
   border-radius: 999px;
   background: rgba(255, 255, 255, 0.02);
-  color: var(--text-secondary);
+  color: var(--text);
   font-size: 0.7rem;
   font-family: var(--font-mono);
   transition: transform 0.25s cubic-bezier(0.2, 0.8, 0.2, 1),
@@ -1012,6 +1012,7 @@
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  padding-right: 4px;
 }
 
 .profile-item:focus-visible .profile-label,
@@ -1029,6 +1030,8 @@
 }
 
 .profile-arrow {
+  flex-shrink: 0;
+  margin-left: 2px;
   font-size: 1.1rem;
   color: var(--terminal-green);
   transition: transform 0.22s ease;
@@ -1608,10 +1611,13 @@
   }
 
   .profile-value {
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
+    white-space: normal;
+    overflow: visible;
+    text-overflow: clip;
+    word-break: break-word;
+    overflow-wrap: anywhere;
     line-height: 1.5;
+    padding-right: 0;
   }
 
   .timeline-item {
