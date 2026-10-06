@@ -62,16 +62,16 @@ const projects: Project[] = [
   },
   {
     number: '03',
-    title: 'Portfolio Website',
+    title: "Gamer's Stop – Video Game Store Management",
     description:
-      'A personal portfolio built to showcase learning, projects and technical interests through a clean developer-first interface.',
-    technologies: ['React', 'TypeScript', 'CSS'],
-    github: 'https://github.com/prajwaltotad',
-    demo: 'https://prajwal-portfolio-zeta.vercel.app/',
+      'A console-based video game store management system built with Python and Pandas. Features separate Admin and Customer panels with stock management, purchase tracking, password protection, and persistent data storage using CSV files.',
+    technologies: ['Python', 'Pandas'],
+    github: 'https://github.com/prajwaltotad/Project_Assign2',
+    demo: null,
     details: {
-      architecture: 'Content → React sections → styled UI → responsive portfolio experience',
+      architecture: 'Admin panel → inventory logic → customer workflow → CSV-backed persistence',
       learned:
-        'This project helped me apply design thinking to the frontend and make content presentation as important as the code behind it.',
+        'This project helped me connect business workflows with clean Python logic, especially around validation, session flow and stateful data handling.',
     },
   },
 ]
@@ -181,6 +181,18 @@ function App() {
     window.addEventListener('keydown', handleKeyDown)
     return () => window.removeEventListener('keydown', handleKeyDown)
   }, [isCommandPaletteOpen])
+
+  useEffect(() => {
+    const previousOverflow = document.body.style.overflow
+
+    if (selectedProject) {
+      document.body.style.overflow = 'hidden'
+    }
+
+    return () => {
+      document.body.style.overflow = previousOverflow
+    }
+  }, [selectedProject])
 
   return (
     <div className="portfolio-shell">

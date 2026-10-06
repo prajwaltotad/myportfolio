@@ -1288,11 +1288,14 @@
 .project-modal {
   position: relative;
   width: min(620px, 100%);
+  max-height: min(80vh, 720px);
   border: 1px solid var(--border);
   border-radius: 20px;
   background: rgba(11, 11, 11, 0.96);
   box-shadow: var(--shadow);
   padding: 26px 24px 24px;
+  overflow-y: auto;
+  overscroll-behavior: contain;
 }
 
 .modal-close {
@@ -1455,6 +1458,17 @@
     width: min(100% - 32px, 1200px);
   }
 
+  .hero-name {
+    white-space: normal;
+    width: auto;
+    flex-wrap: wrap;
+  }
+
+  .hero-name-word {
+    white-space: normal;
+    flex-shrink: 1;
+  }
+
   .navbar {
     min-height: 68px;
   }
@@ -1503,9 +1517,28 @@
     grid-template-columns: 1fr;
   }
 
+  .profile-item {
+    grid-template-columns: 1fr;
+    align-items: flex-start;
+    justify-items: start;
+  }
+
+  .profile-value {
+    white-space: normal;
+    overflow: visible;
+    text-overflow: initial;
+    word-break: break-word;
+  }
+
   .timeline-item {
     grid-template-columns: 1fr;
     gap: 12px;
+  }
+
+  .project-actions {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
   }
 
   .footer-inner {
@@ -1519,6 +1552,48 @@
 
   .footer-links {
     justify-content: flex-start;
+  }
+}
+
+@media (max-width: 480px) {
+  .container,
+  .section-shell {
+    width: min(100% - 20px, 1200px);
+  }
+
+  .section {
+    padding: 72px 0;
+  }
+
+  .hero h1 {
+    font-size: clamp(2.2rem, 13vw, 3.2rem);
+  }
+
+  .project-card,
+  .activity-card,
+  .skill-group,
+  .learning-card,
+  .timeline,
+  .contact-form,
+  .terminal-panel,
+  .terminal-aside {
+    border-radius: 14px;
+  }
+
+  .project-modal {
+    border-radius: 16px;
+    padding: 22px 16px 18px;
+  }
+
+  .modal-header {
+    flex-direction: column;
+    align-items: flex-start;
+    padding-right: 0;
+  }
+
+  .modal-close {
+    top: 10px;
+    right: 10px;
   }
 }
 
