@@ -1468,10 +1468,12 @@
   }
 
   .hero-name {
-    white-space: normal;
-    width: auto;
-    flex-wrap: wrap;
-    row-gap: 0.05em;
+    white-space: nowrap;
+    width: max-content;
+    max-width: 100%;
+    flex-wrap: nowrap;
+    row-gap: 0;
+    min-width: 0;
   }
 
   .hero-name-word {
@@ -1531,13 +1533,13 @@
     grid-template-columns: auto minmax(0, 1fr) auto;
     align-items: center;
     justify-items: start;
+    gap: 8px;
   }
 
   .profile-value {
-    white-space: normal;
-    overflow: visible;
-    text-overflow: initial;
-    word-break: break-word;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
     line-height: 1.5;
   }
 
